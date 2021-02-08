@@ -86,3 +86,20 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+/target
+.classpath
+.project
+.settings
+.springBeans
+.idea/
+
+**/target/
+**/.classpath
+**/.project
+**/.settings
+**/.springBeans
+**/.idea/
+
+**/.settings/
+**/.project/

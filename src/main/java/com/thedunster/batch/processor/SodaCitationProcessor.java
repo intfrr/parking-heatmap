@@ -40,7 +40,7 @@ public class SodaCitationProcessor implements ItemProcessor<SodaCitation, Citati
     @Autowired
     CitationRepository citationRepository;
 
-    @Value("${parking.heatmap.key.google.api.key}")
+    @Value("${parking.heatmap.key.google.api.key:AIzaSyCTWAOF_H060Hi9GKYHvRApqrWPrOCjGI0}")
     private String googleApiKey;
 
     private static final Logger log = LoggerFactory.getLogger(SodaCitationProcessor.class);
@@ -66,6 +66,7 @@ public class SodaCitationProcessor implements ItemProcessor<SodaCitation, Citati
         final String method = "process()";
         CitationEntity citationEntity = null;
         List<CitationEntity> results = citationRepository.findByCitation(sodaCitation.getCitation());
+        System.out.println("googleApiKey:" + googleApiKey);
         if (results.size() == 0) {
             CarEntity carEntity = getCarEntity(sodaCitation);
             LocationEntity locationEntity = getLocationEntity(sodaCitation);
